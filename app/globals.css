@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.game-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.game-status {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.square {
+  width: 120px;
+  height: 120px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 10px;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.square:hover:not(:disabled) {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.square:disabled {
+  cursor: not-allowed;
+}
+
+.square.x {
+  color: #667eea;
+}
+
+.square.o {
+  color: #764ba2;
+}
+
+.square.winner {
+  background: #ffd700;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.reset-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  .square {
+    width: 90px;
+    height: 90px;
+    font-size: 2rem;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .game-status {
+    font-size: 1.2rem;
+  }
+}
